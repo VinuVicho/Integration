@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<header>
+    <p><a href="http://localhost:8080/post">Posts</a>
+        <a href="http://localhost:8080/account/all">  All Users</a></p><br><hr>
+</header>
+<body>
+
+<form th:method="POST" th:action="@{/registration}" th:object="${registrationRequest}">
+    <label for="username">Ведіть Username: </label>
+    <input type="text" th:field="*{nickname}" id="username">
+    <br>
+    <br>
+    <label for="email">Enter E-mail:</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br>
+    <br>
+    <label for="password">Enter Password:</label>
+    <input type="text" th:field="*{password}" id="password">
+    <br>
+    <input type="submit" value="Register">
+</form>
+<p> Already have an account? <a href="/login">Log in</a></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<header>
+    <p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a>    <a href="http://localhost:8080/post">Posts</a>
+        <a href="http://localhost:8080/account/all">  All Users</a></p><br><hr>
+</header>
+<body>
+
+<p th:text="'Id: ' + ${post.getId()}"></p>
+<p th:text="${post.getTitle()}"></p>
+<div th:unless="${(post.getImageUrl().equals(''))}">
+    <a th:href="${post.getImageUrl()}">
+        <img th:src="${post.getImageUrl()}" alt="no" height="500">
+    </a>
+</div>
+<p th:text="${post.getText()}"></p>
+
+<br>
+<hr>
+
+<form th:method="POST" th:action="@{{id}/comment/new(id=${post.getId()})}" th:object="${newComment}">
+    <label for="text">Enter text: </label>
+    <input type="text" th:field="*{text}" id="text">
+    <br>
+    <input type="submit" value="Comment">
+</form>
+
+<br><hr>
+<div th:each="comment : ${comments}">
+    <p th:text="${comment.getCreatedBy()} + ': ' + ${comment.getText()}"></p>
+    <hr>
+    <br>
+</div>
+
+</body>
+</html>

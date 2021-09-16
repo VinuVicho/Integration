@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+
+<header>
+    <p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a>
+        <a href="http://localhost:8080/account/all">  All Users</a></p><br><hr>
+</header>
+<body>
+
+
+<div th:each="post : ${posts}">
+    <a th:href="@{/post/{id}(id=${post.getId()})}">
+        <p th:text="${post.getTitle()}"></p>
+        <div th:unless="${(post.getImageUrl().equals(''))}">
+            <img th:src="${post.getImageUrl()}" alt="no" height="500">
+        </div>
+    </a>
+    <hr>
+</div>
+
+</body>
+</html>
