@@ -5,16 +5,18 @@
     <title>Post</title>
 </head>
 <header>
-    <p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a>    <a href="http://localhost:8080/post">Posts</a>
-        <a href="http://localhost:8080/account/all">  All Users</a></p><br><hr>
+    <p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a><a href="http://localhost:8080/post">Posts</a>
+        <a href="http://localhost:8080/account/all"> All Users</a>
+    </p><br>
+    <hr>
 </header>
 <body>
 
 <p th:text="'Id: ' + ${post.getId()}"></p>
-<p th:text="${post.getTitle()}"></p>
+<h4 th:text="${post.getTitle()}"></h4>
 <div th:unless="${(post.getImageUrl().equals(''))}">
     <a th:href="${post.getImageUrl()}">
-        <img th:src="${post.getImageUrl()}" alt="no" height="500">
+        <img th:src="${post.getImageUrl()}" alt="" height="500">
     </a>
 </div>
 <p th:text="${post.getText()}"></p>
@@ -29,10 +31,10 @@
     <input type="submit" value="Comment">
 </form>
 
-<br><hr>
+<br>
+<hr>
 <div th:each="comment : ${comments}">
-    <p th:text="${comment.getCreatedBy()} + ': ' + ${comment.getText()}"></p>
-    <hr>
+    <p th:text="${comment.getCreatedByNickName()} + ': ' + ${comment.getText()}"></p>
     <br>
 </div>
 

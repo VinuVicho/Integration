@@ -7,14 +7,15 @@
 
 <header>
     <p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a>
-        <a href="http://localhost:8080/account/all">  All Users</a></p><br><hr>
+        <a href="http://localhost:8080/account/all"> All Users</a></p><br>
+    <hr>
 </header>
 <body>
 
 
 <div th:each="post : ${posts}">
     <a th:href="@{/post/{id}(id=${post.getId()})}">
-        <p th:text="${post.getTitle()}"></p>
+        <h4 th:text="${post.getTitle()}"></h4>
         <div th:unless="${(post.getImageUrl().equals(''))}">
             <img th:src="${post.getImageUrl()}" alt="no" height="500">
         </div>

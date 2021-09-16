@@ -5,14 +5,18 @@
     <title>My Page</title>
 </head>
 <header>
-    <p><a href="http://localhost:8080/post">Posts</a>   <a href="http://localhost:8080/account/all">  All Users</a></p><br><hr>
+    <p><a href="http://localhost:8080/post">Posts </a> <a href="http://localhost:8080/account/all"> All Users</a></p><br>
+    <hr>
 </header>
 <body>
 
 <p th:text="'Id:' + ${user.getId()}"></p>
-<p th:text="'Username:' + ${user.getUsername()}"></p>
-<p th:text="'E-mail:' + ${user.getEmail()}"></p>
+<p th:text="'Username: ' + ${user.getUsername()}"></p>
+<p th:text="'E-mail: ' + ${user.getEmail()}"></p>
 
+<form th:method="GET" th:action="@{/logout}">
+    <input type="submit" value="Log out">
+</form>
 <br>
 <hr>
 
@@ -29,9 +33,6 @@
     <input type="submit" value="Create">
 </form>
 
-<form th:method="GET" th:action="@{/logout}">
-    <input type="submit" value="Log out">
-</form>
 
 <br>
 <hr>

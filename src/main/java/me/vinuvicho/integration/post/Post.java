@@ -22,7 +22,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_sequence")
     private Long id;
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn(name = "user_id", nullable = false)
 //    private AppUser appUser;
     private Long createdBy;                      //id of creator

@@ -41,7 +41,9 @@ public class PostController {
         System.out.println("comment start");
         try {
             Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            comment.setCreatedBy(appUserRepository.findByEmail(((UserDetails) principal).getUsername()).get().getId());
+            AppUser user = appUserRepository.findByEmail(((UserDetails) principal).getUsername()).get();
+            comment.setCreatedBy(user.getId());
+            comment.setCreatedByNickName(user.getNickName());
         } catch (Exception e) {
             return "redirect:/registration";
         }

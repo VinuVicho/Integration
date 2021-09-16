@@ -20,6 +20,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_sequence")
     private Long id;
     private Long createdBy;
+    private String createdByNickName;
     private String text;
     private Long postId;
 //    @OneToMany(mappedBy = "app_user")

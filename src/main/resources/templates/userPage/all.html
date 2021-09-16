@@ -5,8 +5,10 @@
     <title>All Users</title>
 </head>
 <body>
-<p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a>    <a href="http://localhost:8080/post">Posts</a></p>
-<br><hr>
+<p><a href="http://localhost:8080/account" th:text="${authorized}">Username</a> <a href="http://localhost:8080/post">Posts</a>
+</p>
+<br>
+<hr>
 <div th:each="appUser : ${users}">
     <a th:href="@{/account/{id}(id=${appUser.getId()})}" th:text="${appUser.getNickName()}"></a>
 </div>

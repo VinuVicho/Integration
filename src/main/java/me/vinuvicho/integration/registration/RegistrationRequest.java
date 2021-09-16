@@ -1,6 +1,5 @@
 package me.vinuvicho.integration.registration;
 
-
 import lombok.*;
 
 @Getter
