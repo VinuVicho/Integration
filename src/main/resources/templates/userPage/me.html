@@ -11,7 +11,7 @@
 <body>
 
 <p th:text="'Id:' + ${user.getId()}"></p>
-<p th:text="'Username: ' + ${user.getUsername()}"></p>
+<p th:text="'Username: ' + ${user.getNickName()}"></p>
 <p th:text="'E-mail: ' + ${user.getEmail()}"></p>
 
 <form th:method="GET" th:action="@{/logout}">
@@ -21,6 +21,7 @@
 <hr>
 
 <form th:method="POST" th:action="@{/post/new}" th:object="${newPost}">
+    <p>Create Post:</p>
     <label for="title">Enter title: </label>
     <input type="text" th:field="*{title}" id="title">
     <br>

@@ -31,6 +31,7 @@ public class PostController {
         } catch (Exception e) {
             model.addAttribute("authorized", "Click to Register");
         }
+        model.addAttribute("newPost", new Post());
         List<Post> posts = postRepository.findAll();
         model.addAttribute("posts", posts);
         return "post/all";
@@ -92,7 +93,7 @@ public class PostController {
 //            model.addAttribute("newComment", new Comment());
 //            return "post/post";
         } catch (Exception e) {
-            return "notFound";
+            return "redirect:/registration";
         }
     }
 }

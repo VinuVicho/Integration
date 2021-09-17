@@ -11,6 +11,20 @@
     <hr>
 </header>
 <body>
+    <form th:method="POST" th:action="@{/post/new}" th:object="${newPost}">
+        <p>Create Post:</p>
+        <label for="title">Enter title: </label>
+        <input type="text" th:field="*{title}" id="title">
+        <br>
+        <label for="imageUrl">Enter imageUrl: </label>
+        <input type="text" th:field="*{imageUrl}" id="imageUrl">
+        <br>
+        <label for="text">Enter text: </label>
+        <input type="text" th:field="*{text}" id="text">
+        <br>
+        <input type="submit" value="Create">
+    </form>
+    <hr>
 
 
 <div th:each="post : ${posts}">
